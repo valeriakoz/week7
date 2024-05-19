@@ -31,10 +31,10 @@ app.post('/pumpkin', (req, res) => {
 
 app.post('/rke143', (req, res) => {
     console.log(req.body);
-    if(req.body.name === 'rke' && req.body.password === "143") {
-        res.status(200).json({nodejsData});
-    } else {
+    if(req.body.name !== 'rke' || req.body.code !== "143") {
         res.status(200).json({message:'Invalid credentials'});
+    } else {
+        res.status(200).json({nodejsData});
     }
    
 });
